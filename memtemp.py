@@ -1,3 +1,4 @@
+
 # memtemp shows memory infos and cpu temperature
 #
 # mem usage, cpu load, cpu temp, cpu frequency
@@ -47,7 +48,7 @@ class MemTemp(plugins.Plugin):
     DEFAULT_FIELDS = ['mem', 'cpu', 'temp']
     LINE_SPACING = 10
     LABEL_SPACING = 0
-    FIELD_WIDTH = 4
+    FIELD_WIDTH = 3
 
     def on_loaded(self):
         logging.info("memtemp plugin loaded.")
@@ -121,8 +122,8 @@ class MemTemp(plugins.Plugin):
                 h_pos = (192, 138)
                 v_pos = (211, 122)
             else:
-                h_pos = (174, 83)
-                v_pos = (174, 69)
+                h_pos = (184, 83)
+                v_pos = (184, 69)
 
         if self.options['orientation'] == "vertical":
             # Dynamically create the required LabeledValue objects
@@ -182,11 +183,6 @@ class MemTemp(plugins.Plugin):
             # default to horizontal
             data = " ".join([self.pad_text(getattr(self, self.ALLOWED_FIELDS[x])()) for x in self.fields])
             ui.set('memtemp_data', data)
-
-
-
-
-
 
 
 
